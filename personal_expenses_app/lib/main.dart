@@ -52,6 +52,18 @@ class _MyAppState extends State<MyApp> {
 
     final ThemeData theme = ThemeData(
       primarySwatch: Colors.purple,
+      fontFamily: 'Quicksand',
+      appBarTheme: const AppBarTheme(
+        titleTextStyle: TextStyle(
+          fontFamily: "OpenSans",
+          fontSize: 20,
+        ),
+      ),
+      textTheme: ThemeData.light().textTheme.copyWith(
+              titleMedium: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          )),
     );
 
     return MaterialApp(
@@ -63,7 +75,9 @@ class _MyAppState extends State<MyApp> {
       )),
       home: Scaffold(
           appBar: AppBar(
-            title: const Text("Personal Expenses App"),
+            title: const Text(
+              "Personal Expenses App",
+            ),
             actions: [
               Builder(
                 builder: (bCtx) => IconButton(
