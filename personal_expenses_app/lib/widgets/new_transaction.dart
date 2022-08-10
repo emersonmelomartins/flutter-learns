@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 class NewTransaction extends StatefulWidget {
   final Function(String title, double amount) onAddNewTransaction;
 
-  NewTransaction({Key? key, required this.onAddNewTransaction})
+  const NewTransaction({Key? key, required this.onAddNewTransaction})
       : super(key: key);
 
   @override
