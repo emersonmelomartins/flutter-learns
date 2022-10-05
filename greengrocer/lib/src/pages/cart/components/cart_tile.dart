@@ -6,12 +6,12 @@ import 'package:greengrocer/src/services/utils_services.dart';
 
 class CartTile extends StatefulWidget {
   final CartItemModel cartItem;
-  final Function(CartItemModel cartItem) remove;
+  final Function(int quantity) onUpdateQuantity;
 
   const CartTile({
     super.key,
     required this.cartItem,
-    required this.remove,
+    required this.onUpdateQuantity,
   });
 
   @override
@@ -58,15 +58,7 @@ class _CartTileState extends State<CartTile> {
           value: widget.cartItem.quantity,
           suffixText: widget.cartItem.item.unit,
           isRemovable: true,
-          result: (quantity) {
-            setState(() {
-              widget.cartItem.quantity = quantity;
-
-              if (quantity == 0) {
-                widget.remove(widget.cartItem);
-              }
-            });
-          },
+          result: widget.onUpdateQuantity,
         ),
       ),
     );

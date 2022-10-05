@@ -44,7 +44,15 @@ class _CartTabState extends State<CartTab> {
               itemBuilder: (_, index) {
                 return CartTile(
                   cartItem: app_data.cartItems[index],
-                  remove: removeItemFromCart,
+                  onUpdateQuantity: (quantity) {
+                    setState(() {
+                      app_data.cartItems[index].quantity = quantity;
+
+                      if (quantity == 0) {
+                        removeItemFromCart(app_data.cartItems[index]);
+                      }
+                    });
+                  },
                 );
               },
             ),
