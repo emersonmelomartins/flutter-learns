@@ -69,6 +69,11 @@ class TextStyles {
       textSecondaryFontExtraBold.copyWith(
         color: ColorsApp.instance.primary,
       );
+
+  TextStyle get titleWhite => textPrimaryFontBold.copyWith(
+        color: Colors.white,
+        fontSize: 22,
+      );
 }
 
 extension TextStylesExtensions on BuildContext {
